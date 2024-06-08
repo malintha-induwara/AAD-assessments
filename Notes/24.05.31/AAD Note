@@ -1,0 +1,65 @@
+Spring Framework called magic framework
+API- Application Programming Interface 
+
+We called artifact to a final product and there are few types
+1)Jar
+2)War
+3)Ear
+
+
+To communitcate between frontend to backend we use following technologies
+
+1)AJAX
+2)Websockt
+3)Server sentiment
+
+
+ex: 1)if you making a stockmarket system front end and backend need to communicate with other consistently
+    2)also if it is like a google , its has more like request and respnse architechure
+    
+    
+    we use postman to check api are working correctly
+    
+
+sudo chown syrex /opt
+
+https://tecadmin.net/install-tomcat-11-on-debian-systems/#google_vignette
+
+
+JCP - Java community process
+
+if you want to feature in java language you can request it using JCP platform. you need to preprea JSR and submit it
+developers will analaize it and they dicide wether it need or not
+
+JSR - java specification request
+JLS - java language specification
+
+
+reference implimation mean if all the features are implemented mention in the specification
+openJDK is the reference implemention
+
+
+java EE has specification set
+
+Java EE name as Jakartha EE
+https://en.wikipedia.org/wiki/Jakarta_EE
+
+
+when give to oracle they dont like to use JAVA name so they renamed it as Jakartha
+
+
+jakathra target enterprice application . it is a speicification --- if specification is approved different orginization can implement it-- specifcation define the how it should be implemented
+
+
+https://docs.oracle.com/javase/8/javafx/embedded-browser-tutorial/overview.htm#JFXWV135
+
+
+
+jakartha sometime fully implemented, some half , some one specifiction
+
+
+tomcat is a not implement all the speicifcaitons its just only implementions selected spicifications
+
+
+https://docs.oracle.com/javase/specs/jls/se22/html/jls-4.html#jls-4.12.1
+
