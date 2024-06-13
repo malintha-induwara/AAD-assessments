@@ -1,0 +1,128 @@
+
+Identify the differeance between web-server and application server
+
+Apache tomcat is not a pure web server it is much more powerfull that
+
+
+web site -host
+web application -deploy
+
+
+Complete solution for bussniess is called Enterprise level applicaiton
+
+
+DNS lookup - process
+
+after we type domain name it automatiicly add the protocol
+
+it also add the portnumber
+
+Why cant directly go to IJSE site using the IP address
+
+Oracle   	|----	Java EE 5
+Reference	|	Java EE 6
+Implementation	|	Java EE 7
+Glassfish	|----	Java EE 8  Jakartha EE 8  ----| Eclipse
+				   Jakartha EE 9      | Reference
+				   Jakartha EE 10     | Implementaiton
+				   Jakartha EE 11 ----| Glassfish
+				   
+if you use any technolgoies react,viu, angular in the end  html,css,js 
+
+only The front end come to the client other backend is saved on the server
+
+
+If all Java EE specification set implemented it called Java EE application server.
+
+
+quaries are on the server
+
+
+AJAX use to connect frontend and backend
+Backend Technogogies -- Java for Enterprise Applications Eg: ERP Applications Sales,Accounting,HR --
+
+			Python for AI Applications
+			
+Enterprise applications - scalablity is very important, also security is important, flexible, Customaize
+
+Java SE is basic one
+james goslin bring Java EE for develop enterprise application
+Java ME - for develop applicaions to mobile devices
+
+We called front-end as client app
+
+Most of the  Enterprises applications are web applications
+
+
+JCP -- 
+
+
+Oracle JDK is implimantaion set
+
+
+Browser has two engines Render engine
+
+
+A artifact is a final product 
+
+There are few file type extenstions that artifact can have
+
+1)jar
+2)war
+3)ear
+
+
+For standalone application we use jar file
+
+
+Examples of Application server Software / Java EE
+JBOX ---> Wild Fly  Redhat maintain it
+
+Java EE Application Server = Web Contaienr + EJB Container
+(Full Profile/Full Platform)  (Web Profile)   (EJB Profile)
+
+
+            |---             ------|    Java EE
+Servlet   < | Web      =     Web   | << Application
+Container   | Contaienr     Profile|    Server
+            |---             ------|
+
+
+Jetty        Tomcat        TomEE        GlassFish
+
+
+Search about
+
+SNAPSHOT
+ALFA
+BETA
+
+
+Search about Apache maven scope
+
+======================================
+
+1)Create New Project and put 
+<packagine> war </packaging>  if you create standalone appliaction use jar
+
+in pom.xml
+
+
+2)Then go to https://jakarta.ee/specifications/ and select Jakartha Serverlt and select the version according to the installed tomcat version
+
+We put this to mark that we just mention we going to use it  there is no accutal implementation its just only a surface. when the runtime we provide the implementation ( Tomcat)
+
+
+   <servlet-class>lk.ijse.gdse68.HelloServlet</servlet-class> //Full qualified name
+
+extend form Httpservelet
+
+ctrl+o
+
+
+
+
+
+
+
+
