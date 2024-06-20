@@ -25,7 +25,21 @@ public class HelloServlet  extends HttpServlet {
         String country = context.getInitParameter("country");
         System.out.println(country);
 
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("doGet() method is invoked");
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("doPost() method is invoked");
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("doDelete() method is invoked");
     }
 }
 

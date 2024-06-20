@@ -25,8 +25,8 @@ public class SyrexServlet extends HttpServlet {
         ServletContext context = getServletContext();
         String country = context.getInitParameter("country");
         System.out.println(country);
-
-
     }
+
+
 }
 
