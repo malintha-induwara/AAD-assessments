@@ -1,0 +1,92 @@
+#What is API?
+
+
+an application programming interface (API) is a way fo rtwo or more computer programs or components to communicate with each other.
+
+
+
+api communication based on programming language
+
+
+#What is specificaiton
+
+specificaiton is like a book t describe the features of java work
+
+
+Servers can handle static content
+
+
+to handle dynamic content we need a help of application server   
+
+
+application severs have engines using a programing language
+
+
+
+application servers are software --> it run inside a normal server os
+
+(servers can create using node)
+
+
+There are 3 type of severs that use java
+
+1)Full profile server
+2)Web profile server
+3)Web container
+
+
+if all the specifiations are implemented in the server it called full profile server
+
+*oracle weblogic
+*wildlife
+*glassfish
+
+
+
+if server implement web profile specificaitons it  it called web profile server   java -Tom EE
+
+
+
+When apply some part of web profile specification it called web container (its not a sever)   - Tom Cat
+
+
+
+#
+
+Diploiment discripter - Web.xml
+
+
+
+
+
+#What is a servlet
+
+
+servlet is a class it can handle HTTP Requests and Responses
+
+
+#What is Annotation
+
+
+
+
+Life Cycle -hook
+
+
+Web applicaiton diploy format is war - web archive
+
+
+Comparison of Jar and War
+
+
+In Jar files MANIFEST.MF contain where the main method is located
+
+To Call the init method when sever start
+
+add <load-on-startup> positive integer number </load-on-startup>
+
+
+
+
+
+
