@@ -103,9 +103,6 @@ public class Student extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        System.out.println("Mama methna awa");
-
-
         try (var writer = resp.getWriter()) {
             var studentId = req.getParameter("studentId");
             Jsonb jsonb = JsonbBuilder.create();
