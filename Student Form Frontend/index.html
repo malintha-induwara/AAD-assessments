@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Data Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+      .form-container h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+      .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+      }
+      .form-container input[type="text"],
+      .form-container input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      .form-container button {
+        width: 48%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .form-container button.save {
+        background-color: #4caf50;
+        color: white;
+      }
+      .form-container button.reset {
+        background-color: #f44336;
+        color: white;
+      }
+      .form-container .button-group {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Student Data Form</h2>
+      <form id="studentDataForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required />
+
+        <label for="level">Level</label>
+        <input type="text" id="level" name="level" required />
+
+        <div class="button-group">
+          <button id="submitButton" type="submit" class="save">Save</button>
+          <button id="resetButton" type="reset" class="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      "use strict";
+
+      document
+        .getElementById("studentDataForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const city = document.getElementById("city").value;
+          const level = document.getElementById("level").value;
+
+          //Create an object
+          const studentDetails = {
+            name: name,
+            email: email,
+            city: city,
+            level: level,
+          };
+
+          //create JSON
+
+          const studentJSON = JSON.stringify(studentDetails);
+          console.log(studentDetails);
+          console.log(studentJSON);
+
+          //Introduce AJAX
+
+
+          //Step 1
+          const http = new XMLHttpRequest();
+
+          //Step 2
+          http.onreadystatechange = () => {
+            if (http.readyState == 4) {
+              if (http.status == 200) {
+                var responseTextJSON = JSON.stringify(http.responseText);
+                console.log(responseTextJSON);
+              } else {
+                console.error("Failed");
+                console.error("Status" + http.status);
+                console.error("Ready State" + http.readyState);
+              }
+            } else {
+              console.error("Ready State" + http.readyState);
+            }
+          };
+
+          //Step 3
+          http.open(
+            "POST",
+            "http://localhost:8080/StudentManagementPortal_war/student",
+            true
+          );
+
+          //Step 4
+          http.setRequestHeader("Content-Type", "application/json");
+
+          //Step 5
+          http.send(studentDetails);
+        });
+    </script>
+  </body>
+</html>

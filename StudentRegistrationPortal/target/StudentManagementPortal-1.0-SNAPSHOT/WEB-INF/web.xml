@@ -20,10 +20,5 @@
         <param-value>Syrex@1234</param-value>
     </context-param>
 
-    <context-param>
-        <param-name>myparm</param-name>
-        <param-value>Hello my param</param-value>
-    </context-param>
-
 
 </web-app>

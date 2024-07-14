@@ -1,0 +1,99 @@
+Jason B type can bind object to a jason, we cant do it in Jason P type
+
+
+Try with reasoures --> auto closable
+
+
+SRP design principle
+
+
+
+DTO design pattern - DTO use to transfer data between layers
+to create these database you need to follow bean spec
+
+
+var is type inference
+
+
+
+Request have a get Reader method
+
+we can use it to read the method
+
+
+jasonb is used to bind jason to a java object (jsonb.fromJson)
+
+
+
+we use try with resource in order to auto close  something 
+
+for example if you create a scanner you need to close it but if you create with try with resources you dont have to do it
+
+
+Serialization and Deserialization
+
+mine type
+
+
+AJAX
+
+ajax is a way to update the website without informing the user
+
+Fetch API
+Axious library- MernStack
+
+
+
+Ready State in AJAX--- Can be asked in interviews
+
+
+header is meta data -- broswer also add header
+
+
+we check readyState because its the only point where the request is ready to check
+
+
+Use firefox
+
+CORS policy -- when you transfer data between two domains
+
+
+OPTION is also method is like GET POST
+
+
+why two options
+
+
+
+
+
+Pre Flight request -- >it intreact with cors policy, we dont speiclay configure it
+there are two requests in pre flight
+
+
+first agent goes -- OPTION is in category of pre flight
+then data goes --POST
+
+
+
+
+
+
+There are two types of HTTP Requests
+
+1)Simple Requests
+2)PreFlight Requests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
