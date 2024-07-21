@@ -1,0 +1,7 @@
+<Resource name="jdbc/StudentPortal" auth="Container" type="javax.sql.DataSource"
+          maxTotal="10" maxIdle="8" maxWaitMillis="-1"
+          username="root" password="Syrex@1234" driverClassName="com.mysql.cj.jdbc.Driver"
+          url="jdbc:mysql://localhost:3306/servletDatabase?createDatabaseIfNotExist=true"/>
+
+
+        <!--If maxWaitMillis is -1 which mean it never timeout-->
