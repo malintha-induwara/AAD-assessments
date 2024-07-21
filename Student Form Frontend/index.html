@@ -139,7 +139,7 @@
           //Step 3
           http.open(
             "POST",
-            "http://localhost:8080/StudentManagementPortal_war/student",
+            "http://localhost:8080/StudentManagementPortal/student",
             true
           );
 
@@ -147,7 +147,7 @@
           http.setRequestHeader("Content-Type", "application/json");
 
           //Step 5
-          http.send(studentDetails);
+          http.send(studentJSON);
         });
     </script>
   </body>
