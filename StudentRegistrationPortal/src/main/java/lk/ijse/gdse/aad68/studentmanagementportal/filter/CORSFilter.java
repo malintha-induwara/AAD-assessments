@@ -14,27 +14,15 @@ import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
 public class CORSFilter extends HttpFilter {
-
-
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-
-
         var origin = getServletContext().getInitParameter("origin");
-
-        if (origin.contains(getServletContext().getInitParameter("origin"))) {
-
-            //To allow only specific origin 5050
+        if(origin.contains(getServletContext().getInitParameter("origin"))){
             res.setHeader("Access-Control-Allow-Origin", origin);
-
-            //Allow methods
-            res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH");
-            res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-
-            //TO expose the Header to Javascript Engine of the browser
-            res.setHeader("Access-Control-Expose-Headers", "Content-Type");
+            res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+            res.setHeader("Access-Control-Allow-Headers","Content-Type");
+            res.setHeader("Access-Control-Expose-Headers","Content-Type");
         }
+        chain.doFilter(req, res);
     }
 }
-
