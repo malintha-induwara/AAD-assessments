@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.gdse.aad68.studentmanagementportal.dto.StudentDTO;
 import lk.ijse.gdse.aad68.studentmanagementportal.util.Util;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Arrays;
@@ -31,13 +34,17 @@ public class Student extends HttpServlet {
     public void init() throws ServletException {
 
         try {
-            var dbClass = getServletContext().getInitParameter("db-class");
-            var dbUrl = getServletContext().getInitParameter("dburl");
-            var dbUserName = getServletContext().getInitParameter("db-username");
-            var dbPassword = getServletContext().getInitParameter("db-password");
-            Class.forName(dbClass);
-            this.connection = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
-        }catch (ClassNotFoundException | SQLException e){
+//            var dbClass = getServletContext().getInitParameter("db-class");
+//            var dbUrl = getServletContext().getInitParameter("dburl");
+//            var dbUserName = getServletContext().getInitParameter("db-username");
+//            var dbPassword = getServletContext().getInitParameter("db-password");
+//            Class.forName(dbClass);
+//            this.connection = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
+
+            var ctx = new InitialContext();
+            DataSource pool = (DataSource) ctx.lookup("java:comp/env/jdbc/StudentPortal");
+            this.connection = pool.getConnection();
+        }catch ( SQLException | NamingException e){
             e.printStackTrace();
         }
     }
