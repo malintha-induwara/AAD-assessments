@@ -22,12 +22,19 @@ public class CORSFilter extends HttpFilter {
 
         var origin = getServletContext().getInitParameter("origin");
 
-        //To allow only specific origin 5050
-        res.setHeader("Access-Control-Allow-Origin",origin);
+        if (origin.contains(getServletContext().getInitParameter("origin"))) {
 
-        //Allow methods
-        res.setHeader("Access-Control-Allow-Methods","GET,POST,PUT,DELETE,PATCH");
-        res.setHeader("Access-Control-Allow-Headers","Content-Type");
+            //To allow only specific origin 5050
+            res.setHeader("Access-Control-Allow-Origin", origin);
+
+            //Allow methods
+            res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH");
+            res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+
+            //TO expose the Header to Javascript Engine of the browser
+            res.setHeader("Access-Control-Expose-Headers", "Content-Type");
+        }
     }
 }
 
