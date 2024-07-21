@@ -1,0 +1,50 @@
+Redystate is a way to see the status of the HTTP Reques
+
+0 - Request not initialized
+1 - Server connections establlished
+2 - Request recivd
+3 - Request received
+4 - Processing request
+
+
+Preflight request is a request that send before the initial request
+
+
+its Called OPTION request( Use Firefox to see the detils)
+
+
+There are many deployments
+
+(Profiling)
+
+DEV
+UAT
+Pre Prod
+Live
+
+
+Web browser has Two Processing engine
+1)Is to Process HTML
+2)To process Javascript
+
+
+There are postman like tools - sacker
+
+Postman should work after the Filters are added
+
+
+what is state
+Idempotent
+
+
+
+JNDI
+
+
+Data source is a connection pool-> there are sql connections
+
+The setup process is different to each other web servers
+
+
+What is the difference between jdbc and JNDI
+
