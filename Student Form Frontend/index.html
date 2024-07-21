@@ -87,6 +87,11 @@
       </form>
     </div>
 
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.js"
+      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+      crossorigin="anonymous"
+    ></script>
     <script>
       "use strict";
 
@@ -114,8 +119,7 @@
           console.log(studentDetails);
           console.log(studentJSON);
 
-          //Introduce AJAX
-
+          // //Introduce AJAX
 
           //Step 1
           const http = new XMLHttpRequest();
@@ -139,7 +143,7 @@
           //Step 3
           http.open(
             "POST",
-            "http://localhost:8080/StudentManagementPortal_war/student",
+            "http://localhost:8080/StudentManagementPortal/student",
             true
           );
 
@@ -147,7 +151,23 @@
           http.setRequestHeader("Content-Type", "application/json");
 
           //Step 5
-          http.send(studentDetails);
+          http.send(studentJSON);
+
+          //Using Jquery
+
+
+          // $.ajax({
+          //   url: "http://localhost:8080/StudentManagementPortal/student",
+          //   type: "POST",
+          //   data: studentJSON,
+          //   headers: { "Content-Type": "application/json" },
+          //   success: (res) => {
+          //     console.log(JSON.stringify(res));
+          //   },
+          //   error: (res) => {
+          //     console.error(res);
+          //   },
+          // });
         });
     </script>
   </body>
