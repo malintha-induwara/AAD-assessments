@@ -1,6 +1,5 @@
 package lk.ijse.gdse.aad68.studentmanagementportal.dao;
 
-import lk.ijse.gdse.aad68.studentmanagementportal.controller.Student;
 import lk.ijse.gdse.aad68.studentmanagementportal.dto.StudentDTO;
 
 import java.sql.Connection;
@@ -15,6 +14,8 @@ public final class StudentDAOImpl implements StudentDAO {
 
     public static String UPDATE_STUDENT = "UPDATE student SET name=?,email=?,city=?,level=? WHERE id=?";
 
+    public static String DELETE_STUDENT = "DELETE FROM student WHERE id=?";
+
     @Override
     public String saveStudent(StudentDTO student, Connection connection) throws Exception {
         try {
@@ -24,19 +25,21 @@ public final class StudentDAOImpl implements StudentDAO {
             ps.setString(3, student.getEmail());
             ps.setString(4, student.getCity());
             ps.setString(5, student.getLevel());
-            if(ps.executeUpdate() != 0){
+            if (ps.executeUpdate() != 0) {
                 return "Student Save Successfully";
-            }else {
+            } else {
                 return "Failed to Save Student";
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         }
     }
 
     @Override
     public boolean deleteStudent(String id, Connection connection) throws Exception {
-        return false;
+        var ps = connection.prepareStatement(DELETE_STUDENT);
+        ps.setString(1, id);
+        return ps.executeUpdate() != 0;
     }
 
     @Override
@@ -49,7 +52,7 @@ public final class StudentDAOImpl implements StudentDAO {
             ps.setString(4, student.getLevel());
             ps.setString(5, id);
             return ps.executeUpdate() != 0;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         }
     }
@@ -61,7 +64,7 @@ public final class StudentDAOImpl implements StudentDAO {
             var ps = connection.prepareStatement(GET_STUDENT);
             ps.setString(1, id);
             var rst = ps.executeQuery();
-            while (rst.next()){
+            while (rst.next()) {
                 studentDTO.setId(rst.getString("id"));
                 studentDTO.setName(rst.getString("name"));
                 studentDTO.setEmail(rst.getString("email"));
@@ -69,7 +72,7 @@ public final class StudentDAOImpl implements StudentDAO {
                 studentDTO.setLevel(rst.getString("level"));
             }
             return studentDTO;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new SQLException(e.getMessage());
         }
     }

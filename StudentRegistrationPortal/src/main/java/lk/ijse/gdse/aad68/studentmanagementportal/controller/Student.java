@@ -120,19 +120,15 @@ public class Student extends HttpServlet {
         try(var writer= resp.getWriter()){
 
             String studentId = req.getParameter("studentId");
-            PreparedStatement ps = connection.prepareStatement(DELETE_STUDENT);
-            ps.setString(1,studentId);
-
-            if (ps.executeUpdate()!=0){
-                writer.write("Delete Student Successfully");
+            var studentDAOIMPL = new StudentDAOImpl();
+            if(studentDAOIMPL.deleteStudent(studentId,connection)){
                 resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
             }else {
                 writer.write("Delete failed");
                 resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
 
