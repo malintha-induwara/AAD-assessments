@@ -1,0 +1,53 @@
+What is JNDI
+What is the difference betweeen JNDI and JDBC
+
+
+
+
+JNDI can use to fetch anydata
+JDBC is only to fetch database connectivity
+
+
+What is logging
+
+
+
+
+logger.info() // Logging level
+logger.server() // Java inbuilt logger it used to display a issue
+
+
+
+Add logs to the Courcework
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

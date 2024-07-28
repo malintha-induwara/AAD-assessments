@@ -14,10 +14,8 @@ public class Security extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-
         System.out.println("Security Filter");
         chain.doFilter(req,res);
-
     }
 }
 
