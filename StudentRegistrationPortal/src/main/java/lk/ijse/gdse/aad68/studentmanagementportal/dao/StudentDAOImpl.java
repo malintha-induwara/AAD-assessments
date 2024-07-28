@@ -13,7 +13,7 @@ public final class StudentDAOImpl implements StudentDAO {
 
     public static String SAVE_STUDENT = "INSERT INTO student (id,name,email,city,level) VALUES(?,?,?,?,?)";
 
-
+    public static String UPDATE_STUDENT = "UPDATE student SET name=?,email=?,city=?,level=? WHERE id=?";
 
     @Override
     public String saveStudent(StudentDTO student, Connection connection) throws Exception {
@@ -41,7 +41,17 @@ public final class StudentDAOImpl implements StudentDAO {
 
     @Override
     public boolean updateStudent(String id, StudentDTO student, Connection connection) throws Exception {
-        return false;
+        try {
+            var ps = connection.prepareStatement(UPDATE_STUDENT);
+            ps.setString(1, student.getName());
+            ps.setString(2, student.getEmail());
+            ps.setString(3, student.getCity());
+            ps.setString(4, student.getLevel());
+            ps.setString(5, id);
+            return ps.executeUpdate() != 0;
+        }catch (SQLException e){
+            throw new SQLException(e.getMessage());
+        }
     }
 
     @Override

@@ -101,16 +101,8 @@ public class Student extends HttpServlet {
             var studentId = req.getParameter("studentId");
             Jsonb jsonb = JsonbBuilder.create();
             StudentDTO student = jsonb.fromJson(req.getReader(), StudentDTO.class);
-
-            //SQL process
-            var ps = connection.prepareStatement(UPDATE_STUDENT);
-            ps.setString(1, student.getName());
-            ps.setString(2, student.getEmail());
-            ps.setString(3, student.getCity());
-            ps.setString(4, student.getLevel());
-            ps.setString(5, studentId);
-            if(ps.executeUpdate() != 0){
-                writer.write("Update Student Successfully");
+            var studentDAOIMPL = new StudentDAOImpl();
+            if(studentDAOIMPL.updateStudent(studentId,student,connection)){
                 resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
             }else {
                 writer.write("Update failed");
@@ -119,7 +111,6 @@ public class Student extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
 
