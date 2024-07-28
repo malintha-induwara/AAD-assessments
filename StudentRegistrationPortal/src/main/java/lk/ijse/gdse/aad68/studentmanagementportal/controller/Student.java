@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.gdse.aad68.studentmanagementportal.dto.StudentDTO;
 import lk.ijse.gdse.aad68.studentmanagementportal.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,9 +19,11 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Arrays;
 
-@WebServlet(urlPatterns = "/student")
+@WebServlet(urlPatterns = "/student",loadOnStartup = 2)
 public class Student extends HttpServlet {
     Connection connection;
+
+    static Logger logger = LoggerFactory.getLogger(Student.class);
 
     private static final String GET_STUDENT = "SELECT * FROM student  where  id = ?";
 
@@ -33,6 +37,8 @@ public class Student extends HttpServlet {
     @Override
     public void init() throws ServletException {
 
+        logger.info("Init method invoked");
+
         try {
 //            var dbClass = getServletContext().getInitParameter("db-class");
 //            var dbUrl = getServletContext().getInitParameter("dburl");
@@ -44,6 +50,7 @@ public class Student extends HttpServlet {
             var ctx = new InitialContext();
             DataSource pool = (DataSource) ctx.lookup("java:comp/env/jdbc/StudentPortal");
             this.connection = pool.getConnection();
+            logger.info("Connection initialized",this.connection);
         }catch ( SQLException | NamingException e){
             e.printStackTrace();
         }
